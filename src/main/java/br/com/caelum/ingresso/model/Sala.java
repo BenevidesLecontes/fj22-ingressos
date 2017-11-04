@@ -1,10 +1,20 @@
 package br.com.caelum.ingresso.model;
 
-import org.hibernate.validator.constraints.NotBlank;
-
-import javax.persistence.*;
-import java.util.*;
+import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+import java.util.Map;
+import java.util.Optional;
 import java.util.stream.Collectors;
+
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+
+import org.hibernate.validator.constraints.NotBlank;
 
 /**
  * Created by nando on 03/03/17.
@@ -12,6 +22,8 @@ import java.util.stream.Collectors;
 @Entity
 public class Sala {
 
+	
+	
     @Id
     @GeneratedValue
     private Integer id;
@@ -19,7 +31,17 @@ public class Sala {
     @NotBlank
     private String nome;
 
-    @OneToMany(fetch = FetchType.EAGER)
+    private BigDecimal preco;
+    
+    public BigDecimal getPreco() {
+		return preco;
+	}
+
+	public void setPreco(BigDecimal preco) {
+		this.preco = preco;
+	}
+
+	@OneToMany(fetch = FetchType.EAGER)
     private List<Lugar> lugares = new ArrayList<>();
 
     /**
@@ -29,8 +51,9 @@ public class Sala {
 
     }
 
-    public Sala(String nome) {
+    public Sala(String nome, BigDecimal preco) {
         this.nome = nome;
+        this.preco = preco;
     }
 
     public Integer getId() {

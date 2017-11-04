@@ -13,6 +13,7 @@ import br.com.caelum.ingresso.model.Sala;
 import br.com.caelum.ingresso.model.Sessao;
 
 public class SessaoForm {
+//Padrão DTO - Data Transfer Object
 
 	private Integer id;
 	
