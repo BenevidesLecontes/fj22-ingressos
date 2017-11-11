@@ -8,7 +8,7 @@
 	<jsp:body>
 		<div class=" col-md-6 col-md-offset-3">
 		<c:forEach var="filme" items="${filmes}">
-
+svg
 				<div class="col-md-4 ">
 					<a href="/filme/${filme.id}/detalhe">
 						<div class="panel panel-default panelSize">
